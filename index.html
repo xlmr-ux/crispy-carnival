@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyLock - Secure Cloud Storage</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // General Body Styling
+            document.body.style.fontFamily = "Arial, sans-serif";
+            document.body.style.margin = "0";
+            document.body.style.padding = "0";
+            document.body.style.backgroundColor = "#f9f9f9";
+            document.body.style.color = "#333";
+            document.body.style.textAlign = "center";
+
+            // Header Styling
+            const h1 = document.querySelector("h1");
+            h1.style.fontSize = "2.5rem";
+            h1.style.margin = "20px 0 10px";
+            h1.style.color = "#222";
+
+            const p = document.querySelector("p");
+            p.style.fontSize = "1rem";
+            p.style.margin = "10px 0 30px";
+            p.style.color = "#666";
+
+            // Service Section Styling
+            const services = document.querySelectorAll(".service");
+            services.forEach(service => {
+                service.style.display = "inline-block";
+                service.style.backgroundColor = "#f4f4f4";
+                service.style.border = "2px solid #ddd";
+                service.style.borderRadius = "10px";
+                service.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+                service.style.margin = "20px";
+                service.style.padding = "20px";
+                service.style.width = "300px";
+                service.style.textAlign = "center";
+
+                const heading = service.querySelector("h3");
+                heading.style.marginBottom = "15px";
+                heading.style.fontSize = "1.5rem";
+                heading.style.color = "#444";
+
+                const inputs = service.querySelectorAll("input, button");
+                inputs.forEach(input => {
+                    input.style.width = "90%";
+                    input.style.margin = "10px 0";
+                    input.style.padding = "10px";
+                    input.style.fontSize = "1rem";
+                    input.style.border = "1px solid #ccc";
+                    input.style.borderRadius = "5px";
+                    input.style.outline = "none";
+                });
+
+                const button = service.querySelector("button");
+                if (button) {
+                    button.style.backgroundColor = "#007bff";
+                    button.style.color = "white";
+                    button.style.border = "none";
+                    button.style.cursor = "pointer";
+                    button.style.transition = "background-color 0.3s ease, transform 0.2s ease";
+
+                    button.addEventListener("mouseover", () => {
+                        button.style.backgroundColor = "#0056b3";
+                        button.style.transform = "scale(1.05)";
+                    });
+
+                    button.addEventListener("mouseout", () => {
+                        button.style.backgroundColor = "#007bff";
+                        button.style.transform = "scale(1)";
+                    });
+                }
+            });
+
+            // Footer Styling
+            const footer = document.querySelector("footer");
+            footer.style.backgroundColor = "#222";
+            footer.style.color = "white";
+            footer.style.padding = "20px";
+            footer.style.marginTop = "30px";
+
+            const footerHeading = footer.querySelector("h3");
+            footerHeading.style.fontSize = "1.8rem";
+            footerHeading.style.marginBottom = "10px";
+
+            const footerText = footer.querySelector("p");
+            footerText.style.fontSize = "1rem";
+        });
+    </script>
+</head>
+<body>
+    <h1>Our Services</h1>
+    <p>Explore how SkyLock keeps your files safe in the cloud</p>
+    
+    <div class="service">
+        <h3>Encrypt Files</h3>
+        <form action="/encrypt" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button type="submit">Encrypt File</button>
+        </form>
+    </div>
+
+    <div class="service">
+        <h3>Decrypt Files</h3>
+        <form action="/decrypt" method="post" enctype="multipart/form-data">
+            <input type="text" name="encryption_key" placeholder="Enter Encryption Key" required>
+            <input type="file" name="file" required>
+            <button type="submit">Decrypt File</button>
+        </form>
+    </div>
+
+    <div class="service">
+        <h3>Upload to Cloud</h3>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="text" name="aws_access_key" placeholder="AWS Access Key" required>
+            <input type="text" name="aws_secret_key" placeholder="AWS Secret Access Key" required>
+            <input type="text" name="bucket_name" placeholder="Bucket Name" required>
+            <input type="file" name="file" required>
+            <button type="submit">Upload to Cloud</button>
+        </form>
+    </div>
+
+    <div class="service">
+        <h3>Download from Cloud</h3>
+        <form action="/download" method="post">
+            <input type="text" name="aws_access_key" placeholder="AWS Access Key" required>
+            <input type="text" name="aws_secret_key" placeholder="AWS Secret Access Key" required>
+            <input type="text" name="bucket_name" placeholder="Bucket Name" required>
+            <input type="text" name="filename" placeholder="Enter filename" required>
+            <button type="submit">Download from Cloud</button>
+        </form>
+    </div>
+
+    <footer>
+        <h3>Contact Us</h3>
+        <p>Have questions or need help? Get in touch with us!</p>
+    </footer>
+</body>
+</html>
